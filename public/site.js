@@ -3,7 +3,7 @@
   var head=d.querySelector('.site-head'),nav=d.getElementById('nav'),burger=d.querySelector('.burger'),ind=d.querySelector('.ind');
   /* sliding indicator */
   function moveInd(el){
-    if(!ind||!el||w.innerWidth<=1080){if(ind)ind.style.opacity=0;return}
+    if(!ind||!el||el.classList.contains('nav-cta')||w.innerWidth<=1080){if(ind)ind.style.opacity=0;return}
     var n=nav.getBoundingClientRect(),r=el.getBoundingClientRect();
     ind.style.width=(r.width-28)+'px';ind.style.transform='translateX('+(r.left-n.left+14)+'px)';ind.style.opacity=1;
   }
