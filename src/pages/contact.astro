@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Contact - Swastik Industries" current="contact">
+<main><div class="page-hero"><img class="bg" src="/assets/f57.jpg" alt=""><div class="wrap"><div class="crumbs"><a href="/">Home</a> / Contact</div><h1>Contact us</h1><p>Send the product, size and quantity. We will reply with a quotation.</p></div></div>
+<section><div class="wrap contact-grid"><div class="info">
+<div><h3>PHONE</h3><p>+91 98990 49419<br>+91 98110 15120</p></div>
+<div><h3>EMAIL</h3><p>info@swastikindustries.co.in<br>swastikindustries@live.in</p></div>
+<div><h3>OFFICE AND WORKS</h3><p>14/20, Prakash Vihar, Shahbad Daulatpur, Delhi 110042</p></div>
+<div><h3>MAILING ADDRESS</h3><p>A-1, East of Kailash, Delhi 110065</p></div>
+<div><h3>CATALOGUE</h3><p><a href="/assets/catalogue.pdf" target="_blank" rel="noopener">Open the product catalogue (PDF)</a></p></div></div>
+<form id="enq"><h3>Enquiry</h3><div class="row2"><label>Name<input id="f-name" required></label><label>Company<input id="f-co"></label></div>
+<div class="row2"><label>Phone<input id="f-ph" type="tel"></label><label>Email<input id="f-em" type="email"></label></div>
+<label>Product<select id="f-prod"><option>Perforated cable tray</option><option>Ladder cable tray</option><option>Raceway</option><option>Earthing material</option><option>Steel structures</option><option>Towers</option><option>Gratings</option><option>Hardware</option></select></label>
+<label>Quantity and specification<textarea id="f-msg" placeholder="Size, thickness, finish, quantity, delivery location"></textarea></label>
+<button class="btn" type="submit">Prepare enquiry</button>
+<div class="out" id="out" role="status"></div><button class="btn ghost" type="button" id="copy" hidden style="color:var(--fg)">Copy enquiry text</button>
+<p class="note">This page cannot send mail by itself. Prepare the enquiry, copy it and email it to info@swastikindustries.co.in.</p></form></div></section></main>
+</Layout>
