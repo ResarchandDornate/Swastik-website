@@ -203,7 +203,7 @@ body.leaving{opacity:0;transition:opacity .2s}
 
 /* light theme + rounded corners */
 .hero{background:var(--bg);color:var(--fg);border-radius:0 0 36px 36px}
-.hero::after{background:linear-gradient(90deg,rgba(246,247,251,.97) 0%,rgba(246,247,251,.84) 42%,rgba(246,247,251,.40) 70%,rgba(246,247,251,.03) 100%)}
+.hero::after{background:linear-gradient(90deg,rgba(246,247,251,.92) 0%,rgba(246,247,251,.68) 28%,rgba(246,247,251,.28) 50%,rgba(246,247,251,.05) 72%,rgba(246,247,251,0) 100%)}
 @media(max-width:700px){.hero::after{background:rgba(246,247,251,.88)}}
 .hero .eyebrow{color:var(--muted)}.hero h1{color:var(--fg)}.hero p{color:#3E4157}
 .hero-actions .btn.ghost{color:var(--brand);border-color:var(--brand)}
@@ -414,7 +414,7 @@ section.themed .card .tx{padding-bottom:1.1rem}
 .intro-band{padding-block:clamp(4rem,8vw,6.5rem)}
 .intro-in{max-width:860px;margin-inline:auto;text-align:center;display:grid;justify-items:center;gap:1.4rem}
 .intro-in .eyebrow{justify-content:center}
-main .intro-text{max-width:none;font-size:clamp(1rem,1.5vw,1.25rem);line-height:1.6;color:var(--muted);font-weight:500}
+main .intro-text{max-width:none;font-size:clamp(1rem,1.3vw,1.125rem);line-height:1.6;color:var(--muted);font-weight:500}
 main .intro-text b{color:var(--brand);font-weight:700}
 .intro-chips{justify-content:center}
 
@@ -549,3 +549,98 @@ section.themed .card{background:rgba(255,255,255,.93);border:1px solid rgba(255,
 .tilt::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(260px circle at var(--gx,50%) var(--gy,0%),rgba(255,255,255,.55),transparent 60%)}
 .tilt.is-tilting::after{opacity:1}
 @media(prefers-reduced-motion:reduce){body::before{transition:none;transform:none}}
+
+/* ===== Typeface and navigation text to match swastikindustries.co.in (Roboto) ===== */
+:root{--font-display:"Roboto","Segoe UI",system-ui,sans-serif;--font-body:"Roboto","Segoe UI",system-ui,sans-serif;--font-mono:"Roboto","Segoe UI",system-ui,sans-serif}
+.nav>a,.has-menu>a{text-transform:uppercase;letter-spacing:.07em;font-size:.78rem;font-weight:500}
+.nav>a.nav-cta{text-transform:none;letter-spacing:.01em;font-size:.9rem;font-weight:500}
+@media(max-width:1080px){.nav>.has-menu>a{text-transform:uppercase;letter-spacing:.07em;font-size:.78rem}}
+
+/* about: large image beside the text, same height as the text block */
+@media(min-width:900px){.about-split{grid-template-columns:1fr 1fr;align-items:stretch;gap:3.5rem}}
+.about-img{min-height:340px}
+.about-img img{width:100%;height:100%;min-height:340px;object-fit:cover;aspect-ratio:auto;display:block}
+.about-split .tx{align-content:center;gap:1.2rem}
+.about-h{font-weight:400;text-transform:uppercase;letter-spacing:.01em;font-size:clamp(1.5rem,2.4vw,2rem);line-height:1.2}
+.about-split .tx p{font-size:.9375rem;line-height:1.65;max-width:none}
+
+/* square corners everywhere except the navbar */
+:where(body *):not(.site-head):not(.site-head *),
+:where(body *):not(.site-head):not(.site-head *)::before,
+:where(body *):not(.site-head):not(.site-head *)::after{border-radius:0 !important}
+
+/* about: Trust the best */
+.trust-h{text-align:center;text-transform:uppercase;font-weight:400;font-size:clamp(1.5rem,2.4vw,2rem);line-height:1.2;margin-bottom:2.2rem}
+.trust-grid{display:grid;gap:1.4rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));max-width:980px;margin-inline:auto}
+.trust-grid img{width:100%;height:auto;display:block;box-shadow:0 14px 40px rgba(20,23,67,.18)}
+
+/* about: Why us (icons beside text on both sides, logo in the middle) */
+.why-layout{display:grid;gap:2.2rem;grid-template-columns:1fr;align-items:center;margin-top:1rem}
+.why-col{display:grid;gap:2.4rem}
+.why-item{display:flex;gap:1.1rem;align-items:flex-start}
+.why-tx h3{font-size:.8125rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;margin:0 0 .6rem;color:var(--fg)}
+.why-tx p{font-size:.875rem;line-height:1.65;color:var(--muted);max-width:none}
+.why-ic{flex:none;width:48px;height:48px;display:grid;place-items:center;background:var(--brand);color:#fff}
+section .why-ic.why-ic.why-ic{border-radius:50% !important}
+.why-logo{display:none;justify-self:center}
+.why-logo img{width:190px;height:auto;display:block}
+@media(min-width:900px){
+  .why-layout{grid-template-columns:1fr auto 1fr;gap:3rem}
+  .why-logo{display:block}
+  .why-left .why-item{justify-content:flex-end;text-align:right}
+}
+
+/* Trust the best tiles: navy with white text; white with navy text on hover */
+.trust-tile{--tile-bg:#2A2D4B;background:var(--tile-bg);color:#fff;aspect-ratio:706/640;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:1.1rem;padding:2.6rem 1.6rem 1.6rem;text-align:center;box-shadow:0 14px 40px rgba(20,23,67,.18);transition:background .3s,color .3s,transform .3s,box-shadow .3s}
+.trust-tile p{color:inherit;font-size:.9375rem;line-height:1.55;max-width:24ch;transition:color .3s}
+.trust-tile:hover{--tile-bg:#fff;color:var(--brand);transform:translateY(-4px);box-shadow:0 20px 48px rgba(20,23,67,.22)}
+.trust-tile svg{flex:none}
+
+/* Why us: glass cards joined to a glowing emblem */
+.why-item{position:relative;background:var(--glass);-webkit-backdrop-filter:blur(16px) saturate(170%);backdrop-filter:blur(16px) saturate(170%);border:1px solid var(--glass-brd);box-shadow:var(--glass-shadow);padding:1.4rem 1.5rem;transition:transform .3s,box-shadow .3s,border-color .3s}
+.why-item:hover{transform:translateY(-5px);border-color:var(--brand);box-shadow:0 20px 48px rgba(20,23,67,.18),inset 0 1px 0 #fff}
+.why-ic{background:linear-gradient(145deg,#2B3085,#141743);box-shadow:0 0 0 5px rgba(20,23,67,.08),0 8px 18px rgba(20,23,67,.35);transition:box-shadow .3s,transform .3s}
+.why-item:hover .why-ic{box-shadow:0 0 0 7px rgba(43,48,133,.18),0 10px 24px rgba(20,23,67,.45);transform:scale(1.06)}
+.why-tx h3{color:var(--brand);letter-spacing:.06em}
+.why-emblem{position:relative;width:250px;height:250px;display:grid;place-items:center;background:radial-gradient(circle at 35% 25%,#fff,rgba(255,255,255,.55));-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 24px 60px rgba(20,23,67,.20),inset 0 1px 0 #fff,0 0 0 1px rgba(255,255,255,.9)}
+.why-emblem::before,.why-emblem::after{content:"";position:absolute;pointer-events:none}
+.why-emblem::before{inset:-18px;border:1px dashed rgba(20,23,67,.35);animation:spin 40s linear infinite}
+.why-emblem::after{inset:-44px;border:1px solid rgba(20,23,67,.12)}
+.why-emblem img{width:150px;height:auto;position:relative}
+section .why-emblem.why-emblem.why-emblem,section .why-emblem.why-emblem.why-emblem::before,section .why-emblem.why-emblem.why-emblem::after{border-radius:50% !important}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(min-width:900px){
+  .why-layout{grid-template-columns:1fr 300px 1fr;gap:2.2rem}
+  .why-left .why-item::after,.why-right .why-item::after{content:"";position:absolute;top:50%;width:2.2rem;height:1px;background:rgba(20,23,67,.35)}
+  .why-left .why-item::after{left:100%}
+  .why-right .why-item::after{right:100%}
+}
+@media(prefers-reduced-motion:reduce){.why-emblem::before{animation:none}}
+
+/* Why us: four equal cards in two aligned rows around the emblem */
+@media(min-width:900px){
+  .why-layout{grid-template-columns:1fr 300px 1fr;grid-template-rows:1fr 1fr;gap:1.6rem 2.2rem;align-items:stretch}
+  .why-col{display:contents}
+  .why-logo{grid-column:2;grid-row:1 / 3;align-self:center}
+  .why-left .why-item:nth-child(1){grid-column:1;grid-row:1}
+  .why-left .why-item:nth-child(2){grid-column:1;grid-row:2}
+  .why-right .why-item:nth-child(1){grid-column:3;grid-row:1}
+  .why-right .why-item:nth-child(2){grid-column:3;grid-row:2}
+  .why-item{align-items:flex-start}
+}
+
+/* Why us: no card boxes, just text and icons around the emblem */
+.why-item,.why-item:hover{background:none;-webkit-backdrop-filter:none;backdrop-filter:none;border:0;box-shadow:none;padding:0;transform:none}
+.why-left .why-item::after,.why-right .why-item::after{display:none}
+.why-tx h3{margin-bottom:.5rem}
+@media(min-width:900px){
+  .why-layout{gap:2.6rem 3rem}
+  .why-item{align-self:center}
+}
+@media(min-width:900px){.why-item{align-self:start}}
+
+/* Why us emblem: deep navy disc with the white logo, thin ring and a slow dashed orbit */
+.why-emblem{width:240px;height:240px;background:radial-gradient(circle at 30% 20%,#3A40A8 0%,#222768 45%,#141743 100%);-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:0 28px 60px rgba(20,23,67,.38),inset 0 2px 0 rgba(255,255,255,.22),inset 0 -14px 30px rgba(0,0,0,.25)}
+.why-emblem::before{inset:-16px;border:1px solid rgba(20,23,67,.28);animation:none}
+.why-emblem::after{inset:-34px;border:1px dashed rgba(20,23,67,.35);animation:spin 50s linear infinite}
+.why-emblem img{width:150px;filter:none}
