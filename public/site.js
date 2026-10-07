@@ -100,3 +100,16 @@
     el.addEventListener('pointerleave',function(){el.style.transition='transform .5s cubic-bezier(.2,.7,.2,1)';el.style.transform='';el.classList.remove('is-tilting')});
   });
 })();
+
+/* company film: starts (muted) when it scrolls into view, pauses when it leaves */
+(function(){
+  var v=document.querySelector('video[data-autoplay]');
+  if(!v||!('IntersectionObserver' in window))return;
+  v.muted=true;
+  new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){var p=v.play();if(p&&p.catch)p.catch(function(){})}
+      else if(!v.paused){v.pause()}
+    });
+  },{threshold:.45}).observe(v);
+})();
