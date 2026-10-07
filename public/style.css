@@ -507,3 +507,45 @@ section.themed .sec-head .lede{font-size:1rem;line-height:1.6}
 .whycard:hover h3,.whycard:hover p{color:var(--brand)}
 .whycard:hover .whyicon{background:var(--brand);color:#fff}
 .whycard p{min-height:calc(3 * 1.7em)}
+
+/* ===== Glass and depth look (visual layer only; content and layout unchanged) ===== */
+:root{--glass:rgba(255,255,255,.55);--glass-strong:rgba(255,255,255,.72);--glass-brd:rgba(255,255,255,.8);--glass-shadow:0 14px 44px rgba(20,23,67,.12),0 2px 8px rgba(20,23,67,.05),inset 0 1px 0 rgba(255,255,255,.85)}
+body{background:#EDF0FA}
+body::before{content:"";position:fixed;inset:-10%;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(38vmax 38vmax at 12% 8%,rgba(139,169,199,.55),transparent 62%),
+    radial-gradient(34vmax 34vmax at 88% 20%,rgba(120,134,222,.38),transparent 62%),
+    radial-gradient(40vmax 40vmax at 72% 92%,rgba(139,169,199,.42),transparent 62%),
+    radial-gradient(30vmax 30vmax at 6% 80%,rgba(20,23,67,.14),transparent 62%);
+  transform:translate3d(calc(var(--mx,0) * -26px),calc(var(--my,0) * -26px),0);transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+
+/* bands become frosted glass so the soft background shows through */
+.alt,.film{background:rgba(255,255,255,.34);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-block:1px solid rgba(255,255,255,.7)}
+
+/* glass surfaces */
+.card,.stack-card,.matcard,.kv>div,form,.sched,.tablewrap .sched,.steps,.facts,.cta-band .wrap,.menu-in{background:var(--glass);-webkit-backdrop-filter:blur(18px) saturate(170%);backdrop-filter:blur(18px) saturate(170%);border:1px solid var(--glass-brd);box-shadow:var(--glass-shadow)}
+.menu-in{background:var(--glass-strong)}
+.pill{background:rgba(255,255,255,.62);-webkit-backdrop-filter:blur(22px) saturate(180%);backdrop-filter:blur(22px) saturate(180%);border:1px solid rgba(255,255,255,.85);box-shadow:0 10px 36px rgba(20,23,67,.14),inset 0 1px 0 rgba(255,255,255,.9)}
+.site-head.scrolled .pill{background:rgba(255,255,255,.72)}
+.cta-band .wrap{background:rgba(225,229,246,.62)}
+.steps,.facts{border-radius:24px}
+.step,.fact{background:transparent}
+input,select,textarea{background:rgba(255,255,255,.6);border:1px solid rgba(20,23,67,.14);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+
+/* navy panels: deep gradient with glass cards on top */
+section.themed{background:radial-gradient(60% 80% at 15% 0%,#2B3085 0%,transparent 60%),radial-gradient(55% 70% at 100% 100%,#1B4592 0%,transparent 60%),#141743;box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 24px 60px rgba(20,23,67,.28)}
+section.themed .card{background:rgba(255,255,255,.93);border:1px solid rgba(255,255,255,.7);box-shadow:0 16px 40px rgba(0,0,0,.28),inset 0 1px 0 #fff}
+.whycard{background:linear-gradient(160deg,rgba(43,48,133,.92),rgba(20,23,67,.94));-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.22);box-shadow:0 18px 44px rgba(20,23,67,.30),inset 0 1px 0 rgba(255,255,255,.28)}
+.whycard:hover{background:rgba(255,255,255,.82);border-color:rgba(255,255,255,.9)}
+.site-foot{background:radial-gradient(70% 120% at 10% 0%,#2B3085 0%,transparent 60%),#141743;box-shadow:inset 0 1px 0 rgba(255,255,255,.16)}
+.clients span{background:linear-gradient(160deg,#2B3085,#141743);box-shadow:0 10px 26px rgba(20,23,67,.25),inset 0 1px 0 rgba(255,255,255,.25)}
+
+/* buttons: soft gloss and depth */
+.btn,a.cta,.nav>a.nav-cta{background-image:linear-gradient(180deg,rgba(255,255,255,.18),rgba(255,255,255,0) 55%);box-shadow:0 10px 24px rgba(20,23,67,.28),inset 0 1px 0 rgba(255,255,255,.28)}
+.btn.ghost{background-image:none;background:rgba(255,255,255,.4);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:inset 0 1px 0 rgba(255,255,255,.7)}
+
+/* 3D tilt: JS sets --rx/--ry/--gx/--gy while the pointer is over a card */
+.tilt{transform-style:preserve-3d;will-change:transform;position:relative}
+.tilt::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(260px circle at var(--gx,50%) var(--gy,0%),rgba(255,255,255,.55),transparent 60%)}
+.tilt.is-tilting::after{opacity:1}
+@media(prefers-reduced-motion:reduce){body::before{transition:none;transform:none}}

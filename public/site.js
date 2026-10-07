@@ -78,3 +78,25 @@
     function sel2(el){var r=d.createRange();r.selectNodeContents(el);var s=w.getSelection();s.removeAllRanges();s.addRange(r)}
   }
 })();
+
+/* glass depth: cards tilt toward the pointer; the soft background drifts the other way */
+(function(){
+  var d=document,w=window;
+  if(!w.matchMedia||w.matchMedia('(prefers-reduced-motion: reduce)').matches||!w.matchMedia('(hover: hover)').matches)return;
+  var root=d.documentElement,raf=0,px=0,py=0;
+  w.addEventListener('pointermove',function(e){
+    px=e.clientX/w.innerWidth-.5;py=e.clientY/w.innerHeight-.5;
+    if(!raf)raf=requestAnimationFrame(function(){root.style.setProperty('--mx',px.toFixed(3));root.style.setProperty('--my',py.toFixed(3));raf=0});
+  },{passive:true});
+  var sel='.card,.stack-card,.whycard,.matcard,.kv>div';
+  [].forEach.call(d.querySelectorAll(sel),function(el){
+    el.classList.add('tilt');
+    el.addEventListener('pointermove',function(e){
+      var r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+      el.style.transition='transform .12s ease-out';
+      el.style.transform='perspective(900px) rotateX('+((.5-y)*7).toFixed(2)+'deg) rotateY('+((x-.5)*9).toFixed(2)+'deg) translateY(-4px)';
+      el.style.setProperty('--gx',(x*100)+'%');el.style.setProperty('--gy',(y*100)+'%');el.classList.add('is-tilting');
+    });
+    el.addEventListener('pointerleave',function(){el.style.transition='transform .5s cubic-bezier(.2,.7,.2,1)';el.style.transform='';el.classList.remove('is-tilting')});
+  });
+})();
