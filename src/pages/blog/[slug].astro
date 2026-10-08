@@ -1,0 +1,25 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { posts } from '../../data/posts.js';
+const { slug } = Astro.params;
+const post = posts.find((p) => p.slug === slug);
+if (!post) return Astro.redirect('/blog');
+const fmt = (d) => new Date(d + 'T00:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+const others = posts.filter((p) => p.slug !== post.slug);
+---
+<Layout title={`${post.title} - Swastik Industries`} current="blog">
+<main>
+<div class="page-hero"><img class="bg" src={`/assets/products/${post.img}.jpg`} alt="" /><div class="wrap"><div class="crumbs"><a href="/">Home</a> / <a href="/blog">Blog</a></div><h1>{post.title}</h1><p>{fmt(post.date)} &middot; {post.readMins} min read</p></div></div>
+<section><div class="wrap"><article class="post">
+  <img class="post-img" src={`/assets/products/${post.img}.jpg`} alt={post.alt} />
+  {post.body.map((b) => b.h ? <h2>{b.h}</h2> : b.p ? <p>{b.p}</p> : <ul>{b.ul.map((li) => <li>{li}</li>)}</ul>)}
+  <div class="post-end"><a class="btn" href="/contact">Request a quote</a><a class="post-back" href="/blog">&larr; All articles</a></div>
+</article></div></section>
+{others.length > 0 && (
+<section class="alt"><div class="wrap"><div class="sec-head"><h2 class="h-xl">Read next</h2></div><div class="blog-list">
+  {others.map((o) => (<a class="blog-card" href={`/blog/${o.slug}`}><div class="blog-ph"><img src={`/assets/products/${o.img}.jpg`} alt={o.alt} loading="lazy" /></div><div class="blog-tx"><span class="blog-meta">{fmt(o.date)} &middot; {o.readMins} min read</span><h3>{o.title}</h3><span class="more">Read article</span></div></a>))}
+</div></div></section>
+)}
+<section class="cta-band"><div class="wrap"><h2>Share your requirements with us</h2><a class="btn" href="/contact">Request a quote</a></div></section>
+</main>
+</Layout>
