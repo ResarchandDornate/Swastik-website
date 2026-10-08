@@ -1,10 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const rows = [
+  { img: 'infrastructure', title: 'Infrastructural Projects', text: 'Galvanised lattice towers, structural steel and walkways for infrastructure projects.', uses: [['Steel structures', 'steel-structures'], ['Gratings', 'gratings']] },
+  { img: 'power-transmission', title: 'Power Transmission Projects', text: 'Structures and supports for 11, 33, 66 and 120 kV substations and power lines.', uses: [['Steel structures', 'steel-structures'], ['Earthing material', 'earthing-hardware']] },
+  { img: 'renewable-bess', title: 'Renewable Energy & BESS', text: 'Module mounting structures, walkways, cable trays and earthing for solar plants.', uses: [['Steel structures', 'steel-structures'], ['Cable trays', 'cable-trays'], ['Earthing material', 'earthing-hardware']] },
+  { img: 'transport', title: 'Transport Infrastructure', text: 'Steel work and cable support systems for metro and rail corridors.', uses: [['Steel structures', 'steel-structures'], ['Cable trays', 'cable-trays']] },
+  { img: 'industrial', title: 'Industrial & Manufacturing Facilities', text: 'Cable trays, raceway, gratings, stair treads and pipeline supports for industrial plants.', uses: [['Cable trays', 'cable-trays'], ['Raceway', 'raceway'], ['Gratings', 'gratings']] },
+];
 ---
 <Layout title="Industries - Swastik Industries" current="industries">
 <main><div class="page-hero"><img class="bg" src="/assets/f75.jpg" alt=""><div class="wrap"><div class="crumbs"><a href="/">Home</a> / Industries &amp; Applications</div><h1>Industries we serve and applications</h1><p>Our products are used in solar plants, substations, transmission lines, towers, rail corridors and industrial plants.</p></div></div>
-<section><div class="wrap"><div class="grid">
-<a class="card" href="/steel-structures"><div class="ph"><img src="/assets/f48.jpg" alt="Lattice tower" loading="lazy"></div><div class="tx"><h3>Infrastructural Projects</h3><p>Galvanised lattice towers and accessories.</p><span class="more">View range</span></div></a><a class="card" href="/steel-structures"><div class="ph"><img src="/assets/f36.jpg" alt="Steel frame" loading="lazy"></div><div class="tx"><h3>Power Transmission Projects</h3><p>Structures and supports for substations of 11, 33, 66 and 120 kV.</p><span class="more">View range</span></div></a><a class="card" href="/steel-structures"><div class="ph"><img src="/assets/f42.jpg" alt="Installer fitting solar structure" loading="lazy"></div><div class="tx"><h3>Renewable Energy &amp; BESS</h3><p>Module mounting structures, walkways, cable trays and earthing.</p><span class="more">View range</span></div></a><a class="card" href="/steel-structures"><div class="ph"><img src="/assets/f75.jpg" alt="Aerial view of metro trains" loading="lazy"></div><div class="tx"><h3>Transport Infrastructure</h3><p>Steel work and cable support systems for transit corridors.</p><span class="more">View range</span></div></a><a class="card" href="/cable-trays"><div class="ph"><img src="/assets/f24.jpg" alt="Cable tray run" loading="lazy"></div><div class="tx"><h3>Industrial &amp; Manufacturing Facilities</h3><p>Cable trays, raceway, gratings, stair treads and pipeline supports.</p><span class="more">View range</span></div></a>
+<section class="ind-sec"><div class="wrap"><div class="ind-list">
+{rows.map((r, i) => (
+  <article class="ind-row">
+    <div class="ind-head"><span class="ind-num">{String(i + 1).padStart(2, '0')}</span><h2 class="ind-title">{r.title}</h2></div>
+    <div class="ind-body"><p>{r.text}</p><ul class="ind-uses">{r.uses.map((u) => (<li><a href={`/${u[1]}`}>{u[0]}</a></li>))}</ul></div>
+    <div class="ind-img"><img src={`/assets/industries/${r.img}.svg`} alt={r.title} loading="lazy" /></div>
+  </article>
+))}
 </div></div></section>
 <section class="alt clients-sec"><div class="wrap"><div class="sec-head"><h2 class="h-xl">OUR CLIENTS</h2></div><div class="client-logos"><img src="/assets/clients/delhi-metro.png" alt="Delhi Metro" width="85" height="97" loading="lazy"><img src="/assets/clients/igi-airport.png" alt="Delhi Indira Gandhi International Airport" width="129" height="96" loading="lazy"><img src="/assets/clients/eta-engineering.png" alt="ETA Engineering" width="94" height="59" loading="lazy"><img src="/assets/clients/lanco.png" alt="Lanco" width="142" height="32" loading="lazy"><img src="/assets/clients/jakson.png" alt="Jakson" width="140" height="35" loading="lazy"><img src="/assets/clients/amplus-solar.png" alt="Amplus Solar" width="95" height="62" loading="lazy"><img src="/assets/clients/larsen-toubro.png" alt="Larsen &amp; Toubro" width="97" height="97" loading="lazy"></div></div></section><section class="cta-band"><div class="wrap"><h2>Send your drawing or bill of quantities</h2><a class="btn" href="/contact">Request a quote</a></div></section></main>
 </Layout>

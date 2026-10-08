@@ -1,0 +1,23 @@
+---
+interface Props { current: string }
+const { current } = Astro.props;
+const products = [
+  { id: 'cable-trays', title: 'Cable trays', img: 'perforated-tray' },
+  { id: 'raceway', title: 'Raceway and channels', img: 'raceway' },
+  { id: 'earthing-hardware', title: 'Earthing material', img: 'earthing' },
+  { id: 'steel-structures', title: 'Steel structures', img: 'solar-structure' },
+  { id: 'gratings', title: 'Gratings and stair treads', img: 'grating' },
+];
+const others = products.filter((p) => p.id !== current);
+---
+<section class="more-products"><div class="wrap">
+  <div class="sec-head"><div class="eyebrow">Our range</div><h2 class="h-xl">Other products</h2></div>
+  <div class="mini-grid">
+    {others.map((p) => (
+      <a class="mini-card" href={`/${p.id}`}>
+        <div class="mini-ph"><img src={`/assets/products/${p.img}.jpg`} alt={p.title} loading="lazy" /></div>
+        <h3>{p.title}</h3>
+      </a>
+    ))}
+  </div>
+</div></section>
