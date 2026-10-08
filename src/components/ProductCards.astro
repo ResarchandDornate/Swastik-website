@@ -1,0 +1,38 @@
+---
+const icons = {
+  tray: '<path d="M3 17h18M5 17V8M19 17V8M5 11h14M5 14h14M9 8v9M15 8v9"/>',
+  box: '<path d="M3 8 12 4l9 4-9 4zM3 8v8l9 4 9-4V8M12 12v8"/>',
+  ground: '<path d="M12 3v10M5 13h14M8 17h8M10.5 21h3"/>',
+  frame: '<path d="M4 20V6l8-3 8 3v14M4 12h16M12 3v17M4 6l8 6 8-6"/>',
+  grid: '<path d="M3 3h18v18H3zM3 9h18M3 15h18M9 3v18M15 3v18"/>',
+  shield: '<path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/><path d="m9 12 2 2 4-4"/>',
+  gear: '<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"/>',
+  ruler: '<path d="M3 17 17 3l4 4L7 21zM8 12l2 2M11 9l2 2M14 6l2 2"/>',
+  wrench: '<path d="M14.5 6.5a4 4 0 0 0-5 5L3 18l3 3 6.5-6.5a4 4 0 0 0 5-5l-2.5 2.5-2.5-.5-.5-2.5z"/>',
+  layers: '<path d="m12 3 9 5-9 5-9-5zM3 13l9 5 9-5M3 17l9 5 9-5"/>',
+  bolt: '<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>',
+  cert: '<circle cx="12" cy="9" r="5"/><path d="m9 13-1 8 4-2 4 2-1-8"/>',
+  fire: '<path d="M12 3c1 4 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-4-1-6 1-9z"/>',
+  zn: '<path d="M4 6h12L4 18h16"/>',
+};
+const items = [
+  { href: 'cable-trays', img: 'perforated-tray', alt: 'Cable trays', title: 'Cable trays', icon: 'tray', desc: 'Perforated and ladder trays with bends, tees, reducers and crosses for safe and organised cable management.', feats: [['shield', 'High load', 'capacity'], ['ruler', '50 to 1500', 'mm wide'], ['gear', 'Made to', 'your drawing']] },
+  { href: 'raceway', img: 'raceway', alt: 'Raceway', title: 'Raceway', icon: 'box', desc: 'C channel, strut channel, C1 channel, cantilever arms and junction boxes.', feats: [['layers', 'Many sizes', 'and layouts'], ['wrench', 'Cable', 'management'], ['gear', 'Made to', 'your drawing']] },
+  { href: 'earthing-hardware', img: 'earthing', alt: 'Earthing material', title: 'Earthing', icon: 'ground', desc: 'GI and copper earthing material, foundation bolts, threaded rods, pipe clamps and U clamps.', feats: [['cert', 'Certified', 'IS'], ['zn', 'GI and', 'copper'], ['wrench', 'Complete', 'hardware']] },
+  { href: 'steel-structures', img: 'solar-structure', alt: 'Steel structure', title: 'Structures', icon: 'frame', desc: 'Substation, transmission, solar, pipeline support and tower structures.', feats: [['bolt', '11 to 120 kV', 'substations'], ['fire', 'Hot dip', 'galvanising'], ['shield', 'In-house', 'fabrication']] },
+  { href: 'gratings', img: 'grating', alt: 'Grating', title: 'Grating', icon: 'grid', desc: 'Bearing bar gratings and stair treads in sizes up to 2 m by 2 m.', feats: [['ruler', 'Bar 25 to', '100 mm'], ['layers', 'Span up', 'to 2 m'], ['gear', 'Made to', 'order']] },
+];
+const svg = (k) => `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icons[k]}</svg>`;
+---
+<div class="grid">
+  {items.map((it) => (
+    <a class="card pcard" href={`/${it.href}`}>
+      <div class="ph"><img src={`/assets/products/${it.img}.jpg`} alt={it.alt} loading="lazy" /></div>
+      <div class="tx">
+        <div class="pc-head"><span class="pc-ic" set:html={svg(it.icon)} /><div><h3>{it.title}</h3><p>{it.desc}</p></div></div>
+        <ul class="pc-feats">{it.feats.map((f) => (<li><Fragment set:html={svg(f[0])} /><span>{f[1]}<br />{f[2]}</span></li>))}</ul>
+        <span class="more">View range</span>
+      </div>
+    </a>
+  ))}
+</div>
