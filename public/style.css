@@ -763,3 +763,19 @@ main .post p{font-size:1rem;line-height:1.8;color:var(--fg);max-width:none;margi
 .post-end{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:2.6rem;padding-top:1.6rem;border-top:1px solid rgba(20,23,67,.18)}
 .post-back{font-weight:500;color:var(--brand);text-decoration:none}
 .post-back:hover{text-decoration:underline}
+
+
+/* product pages: Raw material, Finish and Accessories in one row */
+.spec-row{display:grid;gap:1.2rem;grid-template-columns:1fr;margin-top:1.6rem;width:100%}
+@media(min-width:800px){.spec-row{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.spec-row .matcard{height:100%}
+.spec-row .matlist{grid-template-columns:1fr}
+
+/* blog: smaller cards */
+.blog-list{grid-template-columns:repeat(auto-fill,minmax(240px,290px));gap:1.2rem;justify-content:start}
+.blog-tx{padding:1rem 1.1rem 1.2rem;gap:.5rem}
+.blog-ph{aspect-ratio:16/10}
+.blog-meta{font-size:.72rem}
+.blog-tx h3{font-size:1rem;line-height:1.3}
+.blog-tx p{font-size:.8rem;line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.blog-tx .more{font-size:.78rem}
