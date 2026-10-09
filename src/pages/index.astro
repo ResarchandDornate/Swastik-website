@@ -1,12 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-const industries = [
-  { img: 'infrastructure', title: 'Infrastructural|Projects', text: 'Galvanised lattice towers, structural steel and walkways for infrastructure projects.' },
-  { img: 'power-transmission', title: 'Power Transmission|Projects', text: 'Structures and supports for 11, 33, 66 and 120 kV substations and power lines.' },
-  { img: 'renewable-bess', title: 'Renewable Energy|& BESS', text: 'Module mounting structures, walkways, cable trays and earthing for solar plants.' },
-  { img: 'transport', title: 'Transport|Infrastructure', text: 'Steel work and cable support systems for metro and rail corridors.' },
-  { img: 'industrial', title: 'Industrial &|Manufacturing Facilities', text: 'Cable trays, raceway, gratings, stair treads and pipeline supports for industrial plants.' },
-];
+import { industries } from '../data/industries.js';
 ---
 <Layout title="Swastik Industries" current="home">
 <main>
@@ -31,7 +25,7 @@ const industries = [
 <section class="stack-sec"><div class="wrap"><div class="sec-head"><div class="eyebrow">Where Our Products Go</div><h2 class="h-xl">Industries We Supply</h2></div></div>
 <div class="wrap"><div class="stack">
 {industries.map((it) => (
-  <article class="stack-card"><div class="stack-tx"><h3>{it.title.split('|').map((part, i) => (<Fragment>{i > 0 && <br />}{part}</Fragment>))}</h3><p>{it.text}</p></div><div class="stack-img"><img src={`/assets/industries/${it.img}.svg`} alt={it.title.replace('|', ' ')} loading="lazy" /></div></article>
+  <article class="stack-card"><div class="stack-tx"><h3>{it.title}</h3><p>{it.text}</p></div><div class="stack-img"><img src={`/assets/industries/${it.img}.svg`} alt={it.title} loading="lazy" /></div></article>
 ))}
 </div></div>
 </section>
