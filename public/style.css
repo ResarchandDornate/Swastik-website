@@ -779,3 +779,9 @@ main .post p{font-size:1rem;line-height:1.8;color:var(--fg);max-width:none;margi
 .blog-tx h3{font-size:1rem;line-height:1.3}
 .blog-tx p{font-size:.8rem;line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .blog-tx .more{font-size:.78rem}
+
+
+/* blog article figures */
+.post-fig{margin:2rem 0}
+.post-fig img{width:100%;height:auto;display:block;aspect-ratio:16/9;object-fit:cover;background:#0E0F22}
+.post-fig figcaption{font-size:.8rem;color:var(--muted);margin-top:.6rem}

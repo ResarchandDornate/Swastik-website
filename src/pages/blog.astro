@@ -7,7 +7,7 @@ const fmt = (d) => new Date(d + 'T00:00:00').toLocaleDateString('en-GB', { day: 
 <main><div class="page-hero"><img class="bg" src="/assets/f57.jpg" alt=""><div class="wrap"><div class="crumbs"><a href="/">Home</a> / Blog</div><h1>Blog</h1><p>Short notes on choosing and specifying cable management, earthing and structures.</p></div></div><section><div class="wrap"><div class="blog-list">
 {posts.map((p) => (
   <a class="blog-card" href={`/blog/${p.slug}`}>
-    <div class="blog-ph"><img src={`/assets/products/${p.img}.jpg`} alt={p.alt} loading="lazy" /></div>
+    <div class="blog-ph"><img src={p.img} alt={p.alt} loading="lazy" /></div>
     <div class="blog-tx"><span class="blog-meta">{fmt(p.date)} &middot; {p.readMins} min read</span><h3>{p.title}</h3><p>{p.excerpt}</p><span class="more">Read article</span></div>
   </a>
 ))}
