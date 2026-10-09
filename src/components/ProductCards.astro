@@ -16,7 +16,7 @@ const icons = {
   zn: '<path d="M4 6h12L4 18h16"/>',
 };
 const items = [
-  { href: 'cable-trays', img: 'perforated-tray', alt: 'Cable trays', title: 'Cable trays', icon: 'tray', desc: 'Perforated and ladder trays with bends, tees, reducers and crosses for safe and organised cable management.', feats: [['shield', 'High load', 'capacity'], ['ruler', '50 to 1500', 'mm wide'], ['gear', 'Made to', 'your drawing']] },
+  { href: 'cable-trays', img: 'perforated-tray', alt: 'Cable trays', title: 'Cable Trays', icon: 'tray', desc: 'Perforated and ladder trays with bends, tees, reducers and crosses for safe and organised cable management.', feats: [['shield', 'High load', 'capacity'], ['ruler', '50 to 1500', 'mm wide'], ['gear', 'Made to', 'your drawing']] },
   { href: 'raceway', img: 'raceway', alt: 'Raceway', title: 'Raceway', icon: 'box', desc: 'C channel, strut channel, C1 channel, cantilever arms and junction boxes.', feats: [['layers', 'Many sizes', 'and layouts'], ['wrench', 'Cable', 'management'], ['gear', 'Made to', 'your drawing']] },
   { href: 'earthing-hardware', img: 'earthing', alt: 'Earthing material', title: 'Earthing', icon: 'ground', desc: 'GI and copper earthing material, foundation bolts, threaded rods, pipe clamps and U clamps.', feats: [['cert', 'Certified', 'IS'], ['zn', 'GI and', 'copper'], ['wrench', 'Complete', 'hardware']] },
   { href: 'steel-structures', img: 'solar-structure', alt: 'Steel structure', title: 'Structures', icon: 'frame', desc: 'Substation, transmission, solar, pipeline support and tower structures.', feats: [['bolt', '11 to 120 kV', 'substations'], ['fire', 'Hot dip', 'galvanising'], ['shield', 'In-house', 'fabrication']] },
@@ -31,7 +31,7 @@ const svg = (k) => `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" 
       <div class="tx">
         <div class="pc-head"><span class="pc-ic" set:html={svg(it.icon)} /><div><h3>{it.title}</h3><p>{it.desc}</p></div></div>
         <ul class="pc-feats">{it.feats.map((f) => (<li><Fragment set:html={svg(f[0])} /><span>{f[1]}<br />{f[2]}</span></li>))}</ul>
-        <span class="more">View range</span>
+        <span class="more">View Range</span>
       </div>
     </a>
   ))}

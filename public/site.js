@@ -69,7 +69,7 @@
     f.addEventListener('submit',function(e){
       e.preventDefault();
       var g=function(i){return (d.getElementById(i)||{}).value||''};
-      var t='To: info@swastikindustries.co.in\nSubject: Enquiry - '+g('f-prod')+'\n\nName: '+g('f-name')+'\nCompany: '+g('f-co')+'\nPhone: '+g('f-ph')+'\nEmail: '+g('f-em')+'\nProduct: '+g('f-prod')+'\nQuantity / specification:\n'+g('f-msg');
+      var t='To: info@swastikindustries.co.in\nSubject: Enquiry - '+g('f-prod')+'\n\nName: '+g('f-name')+'\nCompany: '+g('f-co')+'\nPhone: '+g('f-ph')+'\nEmail: '+g('f-em')+'\nProduct: '+g('f-prod')+'\nQuantity / Specification:\n'+g('f-msg');
       var o=d.getElementById('out');o.textContent=t;o.classList.add('on');
       var b=d.getElementById('copy');if(!b)return;b.hidden=false;
       b.onclick=function(){var done=function(){b.textContent='Copied'};

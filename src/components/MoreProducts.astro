@@ -2,16 +2,16 @@
 interface Props { current: string }
 const { current } = Astro.props;
 const products = [
-  { id: 'cable-trays', title: 'Cable trays', img: 'perforated-tray' },
-  { id: 'raceway', title: 'Raceway and channels', img: 'raceway' },
-  { id: 'earthing-hardware', title: 'Earthing material', img: 'earthing' },
-  { id: 'steel-structures', title: 'Steel structures', img: 'solar-structure' },
-  { id: 'gratings', title: 'Gratings and stair treads', img: 'grating' },
+  { id: 'cable-trays', title: 'Cable Trays', img: 'perforated-tray' },
+  { id: 'raceway', title: 'Raceway and Channels', img: 'raceway' },
+  { id: 'earthing-hardware', title: 'Earthing Material', img: 'earthing' },
+  { id: 'steel-structures', title: 'Steel Structures', img: 'solar-structure' },
+  { id: 'gratings', title: 'Gratings and Stair Treads', img: 'grating' },
 ];
 const others = products.filter((p) => p.id !== current);
 ---
 <section class="more-products"><div class="wrap">
-  <div class="sec-head"><div class="eyebrow">Our range</div><h2 class="h-xl">Other products</h2></div>
+  <div class="sec-head"><div class="eyebrow">Our Range</div><h2 class="h-xl">Other Products</h2></div>
   <div class="mini-grid">
     {others.map((p) => (
       <a class="mini-card" href={`/${p.id}`}>

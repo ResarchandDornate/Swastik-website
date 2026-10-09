@@ -8,8 +8,8 @@ const fmt = (d) => new Date(d + 'T00:00:00').toLocaleDateString('en-GB', { day: 
 {posts.map((p) => (
   <a class="blog-card" href={`/blog/${p.slug}`}>
     <div class="blog-ph"><img src={p.img} alt={p.alt} loading="lazy" /></div>
-    <div class="blog-tx"><span class="blog-meta">{fmt(p.date)} &middot; {p.readMins} min read</span><h3>{p.title}</h3><p>{p.excerpt}</p><span class="more">Read article</span></div>
+    <div class="blog-tx"><span class="blog-meta">{fmt(p.date)} &middot; {p.readMins} min read</span><h3>{p.title}</h3><p>{p.excerpt}</p><span class="more">Read Article</span></div>
   </a>
 ))}
-</div></div></section><section class="cta-band"><div class="wrap"><h2>Share your requirements with us</h2><a class="btn" href="/contact">Request a quote</a></div></section></main>
+</div></div></section><section class="cta-band"><div class="wrap"><h2>Share Your Requirements with Us</h2><a class="btn" href="/contact">Request a Quote</a></div></section></main>
 </Layout>
