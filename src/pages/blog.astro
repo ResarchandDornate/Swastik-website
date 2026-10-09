@@ -4,7 +4,7 @@ import { posts } from '../data/posts.js';
 const fmt = (d) => new Date(d + 'T00:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 ---
 <Layout title="Blog - Swastik Industries" current="blog">
-<main><div class="page-hero"><img class="bg" src="/assets/f57.jpg" alt=""><div class="wrap"><div class="crumbs"><a href="/">Home</a> / Blog</div><h1>Blog</h1><p>Short notes on choosing and specifying cable management, earthing and structures.</p></div></div><section><div class="wrap"><div class="blog-list">
+<main><div class="page-hero"><img class="bg" src="/assets/f57.webp" alt=""><div class="wrap"><div class="crumbs"><a href="/">Home</a> / Blog</div><h1>Blog</h1><p>Short notes on choosing and specifying cable management, earthing and structures.</p></div></div><section><div class="wrap"><div class="blog-list">
 {posts.map((p) => (
   <a class="blog-card" href={`/blog/${p.slug}`}>
     <div class="blog-ph"><img src={p.img} alt={p.alt} loading="lazy" /></div>

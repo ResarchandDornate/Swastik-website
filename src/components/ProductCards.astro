@@ -27,7 +27,7 @@ const svg = (k) => `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" 
 <div class="grid">
   {items.map((it) => (
     <a class="card pcard" href={`/${it.href}`}>
-      <div class="ph"><img src={`/assets/products/${it.img}.jpg`} alt={it.alt} loading="lazy" /></div>
+      <div class="ph"><img src={`/assets/products/${it.img}.webp`} alt={it.alt} loading="lazy" /></div>
       <div class="tx">
         <div class="pc-head"><span class="pc-ic" set:html={svg(it.icon)} /><div><h3>{it.title}</h3><p>{it.desc}</p></div></div>
         <ul class="pc-feats">{it.feats.map((f) => (<li><Fragment set:html={svg(f[0])} /><span>{f[1]}<br />{f[2]}</span></li>))}</ul>

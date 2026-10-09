@@ -15,7 +15,7 @@ const others = products.filter((p) => p.id !== current);
   <div class="mini-grid">
     {others.map((p) => (
       <a class="mini-card" href={`/${p.id}`}>
-        <div class="mini-ph"><img src={`/assets/products/${p.img}.jpg`} alt={p.title} loading="lazy" /></div>
+        <div class="mini-ph"><img src={`/assets/products/${p.img}.webp`} alt={p.title} loading="lazy" /></div>
         <h3>{p.title}</h3>
       </a>
     ))}
